@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="CustomDialog" Height="74" Width="347" WindowStyle="None">
     <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Image Width="41" Height="39" Margin="10,0,0,0"></Image>
+            <TextBlock Width="116" Height="21" Margin="5,0,0,0" ></TextBlock>
+        </StackPanel>
         
     </Grid>
 </Window>
