@@ -56,10 +56,10 @@
                 <GroupBox>
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Resource/PageInfo.png" Margin="3,0,2,0"></Image>
+                            <Image Source="{Binding ImagePageInformationSourceHeader}" Margin="3,0,2,0"></Image>
                             <TextBlock Grid.Column="0"
                                        Margin="2,0,2,0"
-                                       Text="{Binding WindowTitleText}"
+                                       Text="{Binding TextBlockPageInformationHeaderText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="12"
@@ -78,7 +78,7 @@
 
                         <StackPanel Grid.Row="0" VerticalAlignment="Center" Orientation="Horizontal">
                             <TextBlock 
-                                       Text="{Binding WindowTitleText}"
+                                       Text="{Binding TextBlockAuthorText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="14"
@@ -88,7 +88,7 @@
                                        Margin="10,0,0,0"
                             ></TextBlock>
                             <TextBlock 
-                                       Text="{Binding WindowTitleText}"
+                                       Text="{Binding TextBlockAuthorInformationText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="14"
@@ -101,7 +101,7 @@
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" >
                             <TextBlock 
-                                Text="{Binding WindowTitleText}"
+                                Text="{Binding TextBlockPageNameText}"
                                 Foreground="{Binding TextColor}"
                                 FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                 FontSize="14"
@@ -111,7 +111,7 @@
                                 Margin="10,0,0,0"
                             ></TextBlock>
                             <TextBlock 
-                                Text="{Binding WindowTitleText}"
+                                Text="{Binding TextBlockPageNameInformationText}"
                                 Foreground="{Binding TextColor}"
                                 FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                 FontSize="14"
@@ -124,7 +124,7 @@
 
                         <StackPanel Grid.Row="2" VerticalAlignment="Center" Orientation="Horizontal" >
                             <TextBlock 
-                                Text="{Binding WindowTitleText}"
+                                Text="{Binding Page}"
                                 Foreground="{Binding TextColor}"
                                 FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                 FontSize="14"
@@ -134,7 +134,7 @@
                                 Margin="10,0,0,0"
                             ></TextBlock>
                             <TextBlock 
-                                Text="{Binding WindowTitleText}"
+                                Text="{Binding PageInformation}"
                                 Foreground="{Binding TextColor}"
                                 FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                 FontSize="14"
@@ -159,9 +159,9 @@
                 <GroupBox Grid.Row="0">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Resource/productDarkpx.png" Margin="3,0,2,0"></Image>
+                            <Image Source="{Binding ImageMediaInformationSourceHeader}" Margin="3,0,2,0"></Image>
                             <TextBlock Margin="2,0,2,0"
-                                       Text="{Binding WindowTitleText}"
+                                       Text="{Binding TextBlockMediaInformationHeaderText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="12"
@@ -177,9 +177,9 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Grid.Column="0">
-                            <Image Margin="10,0,5,0" Source="../Resource/PageInfo.png" Width="25" ></Image>
+                            <Image Margin="10,0,5,0" Source="{Binding ImageMediaTypeSource}" Width="25" ></Image>
                             <TextBlock 
-                                       Text="{Binding WindowTitleText}"
+                                       Text="{Binding TextBlockMediaTypeText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="14"
@@ -189,7 +189,7 @@
                                        Margin="0,0,0,0"
                             ></TextBlock>
                             <TextBlock 
-                                       Text="Video ( 1:00:00 )"
+                                       Text="{Binding TextBlockMediaTypeInformationText}"
                                        Foreground="{Binding TextColor}"
                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                        FontSize="14"
@@ -215,18 +215,18 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Orientation="Horizontal" Height="61" VerticalAlignment="Bottom">
-                        <Border BorderBrush="White" Background="Transparent"
+                        <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
                                 BorderThickness="3"
                                 Padding="5" CornerRadius="3" Margin="0,15,0,0" Width="212">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Source="../Resource/YoutubeDark.png" Width="30" Margin="0,0,0,0"></Image>
+                                <Image Source="{Binding ImageDownloaderProgramTypeSource}" Width="30" Margin="0,0,0,0"></Image>
                                 <TextBlock 
-                                    Text="YouTube"
+                                    Text="{Binding TextBlockDownloaderProgramTypeText}"
                                     Foreground="{Binding TextColor}"
                                     FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                     FontSize="20"
                                     FontWeight="Medium"
-                                    Margin="3,1,0,0">
+                                    Margin="3,1,7,0">
                                 </TextBlock>
                             </StackPanel>
                         </Border>
@@ -234,7 +234,7 @@
 
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12.5,0,0">
 
-                        <Button x:Name="ButtonBack" Width="120" Height="40" Margin="0,0,10,0" Content="jffjfjfjfj" Foreground="{Binding TextColor}">
+                        <Button x:Name="ButtonBack" Width="120" Height="40" Margin="0,0,10,0" Content="{Binding ButtonBackContent}" Foreground="{Binding TextColor}">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 
@@ -245,7 +245,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                        <Button x:Name="ButtonStartDownload" Width="120" Height="40" Margin="0,0,0,0" Foreground="{Binding TextColor}" Content="sddjdjdj">
+                        <Button x:Name="ButtonStart" Width="120" Height="40" Margin="0,0,0,0" Foreground="{Binding TextColor}" Content="{Binding ButtonStartContent}">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 

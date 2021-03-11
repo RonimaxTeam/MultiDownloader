@@ -14,6 +14,7 @@ namespace CustomAlertBoxDemo
     public partial class Form_Alert : Form
     {
         public static bool IsBusy { get; set; }
+
         public Form_Alert()
         {
             InitializeComponent();

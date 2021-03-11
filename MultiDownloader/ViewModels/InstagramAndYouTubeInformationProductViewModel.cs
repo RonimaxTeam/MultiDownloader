@@ -25,18 +25,27 @@ namespace MultiDownloader.ViewModels
         private string _imagePageInformationSourceHeader;
         private string _textBlockPageInformationHeaderText;
         private string _textBlockAuthorText;
+        private string _textBlockAuthorInformationText;
+        private string _textBlockPageNameText;
+        private string _textBlockPageNameInformationText;
         public bool IsBusy { get; set; }
 
-        public string TextBlockAuthorText
-        {
-            get { return _textBlockAuthorText; }
-            set
-            {
-                _textBlockAuthorText = value;
-            }
-        }
+        //===========================
+        private string _page;
+        private string _pageInformation;
+        //===========================
 
-        //NotifyOfPropertyChange();
+        private string _imageMediaInformationSourceHeader;
+        private string _textBlockMediaInformationHeaderText;
+        private string _imageMediaTypeSource;
+        private string _textBlockMediaTypeText;
+        private string _textBlockMediaTypeInformationText;
+        private string _imageDownloaderProgramTypeSource;
+        private string _groupBoxBorderBrush;
+        private string _textBlockDownloaderProgramTypeText;
+        private string _buttonBackContent;
+        private string _buttonStartContent;
+        private string _comboBox;
 
         public InstagramAndYouTubeInformationProductViewModel()
         {
@@ -50,6 +59,25 @@ namespace MultiDownloader.ViewModels
                 ,new ComboBoxItem(){Slide="2",ProductType="Kapil", ProductTime="36.34" }
             };
             ImagePageInformationSourceHeader = "../Resource/PageInfo.png";
+            TextBlockPageInformationHeaderText = "Page Information";
+            TextBlockAuthorText = "Author : ";
+            TextBlockAuthorInformationText = "";
+            TextBlockPageNameText = "Page Name : ";
+            TextBlockPageNameInformationText = "";
+
+            Page = "بعدا پر شود";
+            PageInformation = "بعدا پر شود";
+
+            ImageMediaInformationSourceHeader = "../Resource/productDarkpx.png";
+            TextBlockMediaInformationHeaderText = "Media Information";
+            ImageMediaTypeSource = "../Resource/PageInfo.png";
+            TextBlockMediaTypeText = "Media Type : ";
+            TextBlockMediaTypeInformationText = "Video ( 1:00:00 )";
+            GroupBoxBorderBrush = "#FFFFFFFF";
+            ImageDownloaderProgramTypeSource = "../Resource/YoutubeDark.png";
+            TextBlockDownloaderProgramTypeText = "Youtube";
+            ButtonBackContent = "Back";
+            ButtonStartContent = "Start";
         }
 
         #region Properties
@@ -90,7 +118,6 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(WindowTitleText);
             }
         }
-
         public string TextColor
         {
             get => _textColor;
@@ -100,14 +127,11 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(TextColor);
             }
         }
-
         public ObservableCollection<ComboBoxItem> Itemes
         {
             get { return _itemes; }
             set { _itemes = value; }
         }
-
-
         public ComboBoxItem SItems
         {
             get { return _sitemes; }
@@ -116,7 +140,6 @@ namespace MultiDownloader.ViewModels
                 _sitemes = value;
             }
         }
-
         public int ComboBoxSelectedIndex 
         {
             get => _comboBoxSelectedIndex;
@@ -126,7 +149,6 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(ComboBoxSelectedIndex.ToString());
             }
         }
-
         public string ImagePageInformationSourceHeader
         {
             get { return _imagePageInformationSourceHeader; }
@@ -136,7 +158,6 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(ImagePageInformationSourceHeader);
             }
         }
-
         public string TextBlockPageInformationHeaderText
         {
             get { return _textBlockPageInformationHeaderText; }
@@ -146,6 +167,169 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(TextBlockPageInformationHeaderText);
             }
         }
+        public string TextBlockAuthorText
+        {
+            get { return _textBlockAuthorText; }
+            set
+            {
+                _textBlockAuthorText = value;
+                NotifyOfPropertyChange(TextBlockAuthorText);
+            }
+        }
+        public string TextBlockAuthorInformationText
+        {
+            get { return _textBlockAuthorInformationText; }
+            set
+            {
+                _textBlockAuthorInformationText = value;
+                NotifyOfPropertyChange(TextBlockAuthorText);
+            }
+        }
+        public string TextBlockPageNameText
+        {
+            get { return _textBlockPageNameText; }
+            set
+            {
+                _textBlockPageNameText = value;
+                NotifyOfPropertyChange(TextBlockPageNameText);
+            }
+        }
+        public string TextBlockPageNameInformationText
+        {
+            get { return _textBlockPageNameInformationText; }
+            set
+            {
+                _textBlockPageNameInformationText = value;
+                NotifyOfPropertyChange(nameof(TextBlockPageNameInformationText));
+            }
+        }
+
+        //===========================
+        public string Page
+        {
+            get { return _page; }
+            set
+            {
+                _page = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        public string PageInformation
+        {
+            get { return _pageInformation; }
+            set
+            {
+                _pageInformation = value;
+                NotifyOfPropertyChange();
+            }
+        }
+        //===========================
+
+        public string ImageMediaInformationSourceHeader
+        {
+            get { return _imageMediaInformationSourceHeader; }
+            set
+            {
+                _imageMediaInformationSourceHeader = value;
+                NotifyOfPropertyChange(ImageMediaInformationSourceHeader);
+            }
+        }
+        public string TextBlockMediaInformationHeaderText
+        {
+            get { return _textBlockMediaInformationHeaderText; }
+            set
+            {
+                _textBlockMediaInformationHeaderText = value;
+                NotifyOfPropertyChange(TextBlockMediaInformationHeaderText);
+            }
+        }
+        public string ImageMediaTypeSource
+        {
+            get { return _imageMediaTypeSource; }
+            set
+            {
+                _imageMediaTypeSource = value;
+                NotifyOfPropertyChange(ImageMediaTypeSource);
+            }
+        }
+        public string TextBlockMediaTypeInformationText
+        {
+            get { return _textBlockMediaTypeInformationText; }
+            set
+            {
+                _textBlockMediaTypeInformationText = value;
+                NotifyOfPropertyChange(TextBlockMediaTypeInformationText);
+            }
+        }
+
+        //===========================
+        public string ComboBox
+        {
+            get { return _comboBox; }
+            set
+            {
+                _comboBox = value;
+                NotifyOfPropertyChange();
+            }
+        }
+        //===========================
+
+        public string TextBlockMediaTypeText
+        {
+            get { return _textBlockMediaTypeText; }
+            set
+            {
+                _textBlockMediaTypeText = value;
+                NotifyOfPropertyChange(TextBlockMediaTypeText);
+            }
+        }
+        public string GroupBoxBorderBrush
+        {
+            get { return _groupBoxBorderBrush; }
+            set
+            {
+                _groupBoxBorderBrush = value;
+                NotifyOfPropertyChange(GroupBoxBorderBrush);
+            }
+        }
+        public string ImageDownloaderProgramTypeSource
+        {
+            get { return _imageDownloaderProgramTypeSource; }
+            set
+            {
+                _imageDownloaderProgramTypeSource = value;
+                NotifyOfPropertyChange(ImageDownloaderProgramTypeSource);
+            }
+        }
+        public string TextBlockDownloaderProgramTypeText
+        {
+            get { return _textBlockDownloaderProgramTypeText; }
+            set
+            {
+                _textBlockDownloaderProgramTypeText = value;
+                NotifyOfPropertyChange(TextBlockDownloaderProgramTypeText);
+            }
+        }
+        public string ButtonBackContent
+        {
+            get { return _buttonBackContent; }
+            set
+            {
+                _buttonBackContent = value;
+                NotifyOfPropertyChange(ButtonBackContent);
+            }
+        }
+        public string ButtonStartContent
+        {
+            get { return _buttonStartContent; }
+            set
+            {
+                _buttonStartContent = value;
+                NotifyOfPropertyChange(nameof(ButtonStartContent));
+            }
+        }
+
 
         #endregion
 
@@ -155,19 +339,14 @@ namespace MultiDownloader.ViewModels
             frm.showAlert(msg, type, time);
         }
         #region Methods
-        public void ButtonStartDownload()
+        public void ButtonStart()
         {
-            this.Alert("Success Alert", Form_Alert.enmType.Progress,Form_Alert.enmDialogTime.Variable);
-            IsBusy = true;
-            Form_Alert.IsBusy = IsBusy;
-            
+            this.Alert("Error", Form_Alert.enmType.Success, Form_Alert.enmDialogTime.Const);
         }
         public void ButtonBack()
         {
-            IsBusy = false;
-            Form_Alert.IsBusy = IsBusy;
+            
         }
-
 
 
         #endregion
