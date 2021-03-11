@@ -189,7 +189,7 @@ namespace MultiDownloader.ViewModels
         public void ButtonChallengeSend()
         {
             IWindowManager manager = new WindowManager();
-            manager.ShowWindow(new InstagramInformationProductAndDownloaderViewModel(), null, null);
+            manager.ShowWindow(new InstagramAndYouTubeInformationProductViewModel(), null, null);
         }
 
         #endregion

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MultiDownloader.Views
 {
     /// <summary>
-    /// Interaction logic for InstagramInformationProductAndDownloaderView.xaml
+    /// Interaction logic for InstagramAndYouTubeInformationProductView.xaml
     /// </summary>
-    public partial class InstagramInformationProductAndDownloaderView : Window
+    public partial class InstagramAndYouTubeInformationProductView : Window
     {
-        public InstagramInformationProductAndDownloaderView()
+        public InstagramAndYouTubeInformationProductView()
         {
             InitializeComponent();
         }

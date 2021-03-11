@@ -81,14 +81,14 @@
     </Compile>
     <Compile Include="ViewModels\ComboBoxItem.cs" />
     <Compile Include="ViewModels\GetURLViewModel.cs" />
-    <Compile Include="ViewModels\InstagramInformationProductAndDownloaderViewModel.cs" />
+    <Compile Include="ViewModels\InstagramAndYouTubeInformationProductViewModel.cs" />
     <Compile Include="ViewModels\InstagramLoginViewModel.cs" />
     <Compile Include="ViewModels\InstaLoginChallengeRequiredViewModel.cs" />
     <Compile Include="Views\GetURLView.xaml.cs">
       <DependentUpon>GetURLView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\InstagramInformationProductAndDownloaderView.xaml.cs">
-      <DependentUpon>InstagramInformationProductAndDownloaderView.xaml</DependentUpon>
+    <Compile Include="Views\InstagramAndYouTubeInformationProductView.xaml.cs">
+      <DependentUpon>InstagramAndYouTubeInformationProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InstagramLoginView.xaml.cs">
       <DependentUpon>InstagramLoginView.xaml</DependentUpon>
@@ -131,7 +131,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\InstagramInformationProductAndDownloaderView.xaml">
+    <Page Include="Views\InstagramAndYouTubeInformationProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +178,15 @@
   <ItemGroup>
     <Resource Include="Resource\downloadDark.png" />
     <Resource Include="Resource\informationDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PageInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\productDarkpx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\YoutubeDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

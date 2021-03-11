@@ -9,7 +9,7 @@ using Caliburn.Micro;
 
 namespace MultiDownloader.ViewModels
 {
-    public class InstagramInformationProductAndDownloaderViewModel : Screen
+    public class InstagramAndYouTubeInformationProductViewModel : Screen
     {
 
         private string _backgroundWindowColor;
@@ -19,7 +19,26 @@ namespace MultiDownloader.ViewModels
         private int _comboBoxSelectedIndex;
         private ObservableCollection<ComboBoxItem> _itemes;
         private ComboBoxItem _sitemes;
-        public InstagramInformationProductAndDownloaderViewModel()
+        private string _imagePageInformationSourceHeader;
+        private string _textBlockPageInformationHeaderText;
+        private string _textBlockAuthorText;
+
+        public string TextBlockAuthorText
+        {
+            get { return _textBlockAuthorText; }
+            set
+            {
+                _textBlockAuthorText = value;
+
+            }
+        }
+
+
+
+        //NotifyOfPropertyChange();
+
+
+        public InstagramAndYouTubeInformationProductViewModel()
         {
             BackgroundWindowColor = "#181745";
             BackgroundTopGridColor = "#0F0F2D";
@@ -30,6 +49,7 @@ namespace MultiDownloader.ViewModels
                 new ComboBoxItem(){ Slide="1", ProductType="Nirav", ProductTime="35.34"}
                 ,new ComboBoxItem(){Slide="2",ProductType="Kapil", ProductTime="36.34" }
             };
+            ImagePageInformationSourceHeader = "../Resource/PageInfo.png";
         }
 
         #region Properties
@@ -104,6 +124,26 @@ namespace MultiDownloader.ViewModels
             {
                 _comboBoxSelectedIndex = value;
                 NotifyOfPropertyChange(ComboBoxSelectedIndex.ToString());
+            }
+        }
+
+        public string ImagePageInformationSourceHeader
+        {
+            get { return _imagePageInformationSourceHeader; }
+            set
+            {
+                _imagePageInformationSourceHeader = value;
+                NotifyOfPropertyChange(ImagePageInformationSourceHeader);
+            }
+        }
+
+        public string TextBlockPageInformationHeaderText
+        {
+            get { return _textBlockPageInformationHeaderText; }
+            set
+            {
+                _textBlockPageInformationHeaderText = value;
+                NotifyOfPropertyChange(TextBlockPageInformationHeaderText);
             }
         }
 
