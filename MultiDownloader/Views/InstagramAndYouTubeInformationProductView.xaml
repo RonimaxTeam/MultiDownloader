@@ -234,7 +234,7 @@
 
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12.5,0,0">
 
-                        <Button Width="120" Height="40" Margin="0,0,10,0" Content="jffjfjfjfj" Foreground="{Binding TextColor}">
+                        <Button x:Name="ButtonBack" Width="120" Height="40" Margin="0,0,10,0" Content="jffjfjfjfj" Foreground="{Binding TextColor}">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 
@@ -245,7 +245,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                        <Button Width="120" Height="40" Margin="0,0,0,0" Foreground="{Binding TextColor}" Content="sddjdjdj">
+                        <Button x:Name="ButtonStartDownload" Width="120" Height="40" Margin="0,0,0,0" Foreground="{Binding TextColor}" Content="sddjdjdj">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 

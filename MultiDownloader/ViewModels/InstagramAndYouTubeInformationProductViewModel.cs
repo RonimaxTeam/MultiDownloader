@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Caliburn.Micro;
+using CustomAlertBoxDemo;
+using MultiDownloader.Views;
 
 namespace MultiDownloader.ViewModels
 {
@@ -22,6 +25,7 @@ namespace MultiDownloader.ViewModels
         private string _imagePageInformationSourceHeader;
         private string _textBlockPageInformationHeaderText;
         private string _textBlockAuthorText;
+        public bool IsBusy { get; set; }
 
         public string TextBlockAuthorText
         {
@@ -29,14 +33,10 @@ namespace MultiDownloader.ViewModels
             set
             {
                 _textBlockAuthorText = value;
-
             }
         }
 
-
-
         //NotifyOfPropertyChange();
-
 
         public InstagramAndYouTubeInformationProductViewModel()
         {
@@ -149,10 +149,23 @@ namespace MultiDownloader.ViewModels
 
         #endregion
 
-        #region Methods
-        public void ButtonDownload()
+        public void Alert(string msg, Form_Alert.enmType type, Form_Alert.enmDialogTime time)
         {
-
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type, time);
+        }
+        #region Methods
+        public void ButtonStartDownload()
+        {
+            this.Alert("Success Alert", Form_Alert.enmType.Progress,Form_Alert.enmDialogTime.Variable);
+            IsBusy = true;
+            Form_Alert.IsBusy = IsBusy;
+            
+        }
+        public void ButtonBack()
+        {
+            IsBusy = false;
+            Form_Alert.IsBusy = IsBusy;
         }
 
 
