@@ -189,5 +189,8 @@
   <ItemGroup>
     <Resource Include="Resource\YoutubeDark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\identification_documents_50px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="GetURLView" Height="220" Width="800" WindowStyle="None" ResizeMode="NoResize" Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen" >
+        Title="GetURLView" Height="200" Width="410" WindowStyle="None" ResizeMode="NoResize"  Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen" >
 
     <Grid>
 
@@ -18,29 +18,9 @@
             <Grid.ColumnDefinitions>
                 <!--24Columns-->
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.09*"></ColumnDefinition>
+                <ColumnDefinition Width="0.09*"></ColumnDefinition>
+
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
@@ -53,29 +33,25 @@
                        FontSize="14">
             </TextBlock>
 
-            <Button Grid.Column="23" Margin="4" Background="DarkRed">
+            <Button Grid.Column="2" Margin="4" Background="DarkRed">
                 <Image Source="../Resource/delete_20px.png"></Image>
             </Button>
 
-            <Button Grid.Column="22" Margin="4,4,2,4" Background="Aqua">
+            <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua">
                 <Image Source="../Resource/minimize_window_20px.png"></Image>
             </Button>
 
         </Grid>
 
         <!--Bottom Grid-->
-       <Grid Grid.Row="1">
-           <Grid.ColumnDefinitions>
-               <ColumnDefinition></ColumnDefinition>
-               <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1">
 
-            <GroupBox Grid.Column="0" Foreground="White" Margin="10">
+            <GroupBox Foreground="White" Margin="10,0,10,10">
 
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../Resource/MethodDark.png" Margin="5,10,2,5"></Image>
-                        <TextBlock Text="{Binding TextBlockMethod}" Margin="5,10,5,5"></TextBlock>
+                        <Image Source="{Binding PictureBoxIdentityConfirmation}" Margin="5,7,2,5" Width="30" Height="30"></Image>
+                        <TextBlock Text="{Binding GroupBoxIdentityConfirmation}" Margin="5,11,5,5" FontSize="13.5"></TextBlock>
                     </StackPanel>
                 </GroupBox.Header>
                 <Grid>
@@ -83,73 +59,118 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Margin="0,5,0,0">
-                        <RadioButton x:Name="RadioButtonEmail"  BorderBrush="DarkRed" Content="{Binding RadioButtonEmailContent}" Foreground="White" Margin="10"></RadioButton>
-                        <RadioButton x:Name="RadioButtonPhone"   BorderBrush="DarkRed"  Content="{Binding RadioButtonPhoneContent}" Foreground="White" Margin="10,0,0,0"></RadioButton>
+                    <StackPanel Grid.Row="0" Margin="0,0,0,0">
+                        <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
+                            BorderThickness="3"
+                            Padding="5" CornerRadius="0" Margin="0,0,0,0" Width="360" Height="54">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding PictureBoxMethod}" Margin="13,9,2,5" Width="20" Height="20"></Image>
+                                <TextBlock Text="{Binding TextBlockMethodText}" Margin="9,9,0,5" FontSize="13"></TextBlock>
+                                <RadioButton x:Name="RadioButtonEmail"  BorderBrush="DarkRed" Content="{Binding RadioButtonEmailContent}" Foreground="White" Margin="5,11,0,0"></RadioButton>
+                                <RadioButton x:Name="RadioButtonPhone"   BorderBrush="DarkRed"  Content="{Binding RadioButtonPhoneContent}" Foreground="White" Margin="5,11,0,0"></RadioButton>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" VerticalAlignment="Center" >
-                        <Button Margin="100,0,100,0"
-                                x:Name="ButtonChallengeSend"
-                                Height="35"
-                                Content="{Binding ButtonChallengeSendContent}" 
-                                FontFamily="/MultiDownloader;component/Fonts/#Dosis"
-                                FontSize="20" Foreground="White">
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="2" Margin="0,0,10,0"
+                                        x:Name="ButtonChallengeSend"
+                                        Width="80"
+                                        Height="35"
+                                        Content="{Binding ButtonChallengeSendContent}" 
+                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
+                                        FontSize="15" Foreground="White">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 
-                                        CornerRadius="20"
-                                        Background="{TemplateBinding Background }">
+                                                CornerRadius="14"
+                                                Background="{TemplateBinding Background }">
+                                        <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center"></ContentPresenter>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Grid.Column="1" Margin="0,0,10,0"
+                                        x:Name="ButtonChallengeVerifyCode"
+                                        Width="80"
+                                        Height="35"
+                                        Content="{Binding ButtonChallengeVerifyCodeContent}" 
+                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
+                                        FontSize="15" Foreground="White">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border 
+                                                CornerRadius="14"
+                                                Background="{TemplateBinding Background }">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                                     </Border>
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                    </StackPanel>
+                        <Grid Grid.Column="0">
+                            <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
+                                            BorderThickness="3"
+                                            Padding="5" CornerRadius="0" Margin="0,3,0,0" Width="180" Height="40">
 
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Column="0" Source="{Binding PictureBoxKey}" Margin="0,0,5,0" Width="12" Height="12"></Image>
+                                    <TextBlock Grid.Column="1" Text="{Binding TextBlockCode}" Margin="0,2.5,0,0" FontSize="13"></TextBlock>
+
+                                </Grid>
+
+
+
+                            </Border>
+                        </Grid>
+
+                    </Grid>
                 </Grid>
-                
 
             </GroupBox>
 
-           <GroupBox Grid.Column="1" Foreground="White" Margin="10">
-               <GroupBox.Header>
-                   <StackPanel Orientation="Horizontal">
-                       <Image Source="{Binding PictureBoxKey}" Margin="5,5,2,5"></Image>
-                        <TextBlock Text="{Binding TextBlockHeaderCode}" Margin="5,10,5,5"></TextBlock>
-                   </StackPanel>
-               </GroupBox.Header>
-               <Grid>
-                   <Grid.RowDefinitions>
-                       <RowDefinition></RowDefinition>
-                       <RowDefinition></RowDefinition>
-                   </Grid.RowDefinitions>
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                   <RowDefinition></RowDefinition>
+                   <RowDefinition></RowDefinition>
+               </Grid.RowDefinitions>
 
-                   <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBlock Margin="0,0,5,0" Text="{Binding TextBlockCode}" VerticalAlignment="Center"></TextBlock>
-                        <TextBox FontSize="11" Tag="{Binding TextBoxChallengeCodeTag }" x:Name="TextBoxChallengeCode" Height="35" Margin="0,0,35,0"  ></TextBox>
-                   </StackPanel>
-                   <StackPanel Grid.Row="1" VerticalAlignment="Center" >
-                       <Button Margin="100,0,100,0"
-                               x:Name="ButtonChallengeVerifyCode"
-                               Height="35"
-                               Content="{Binding ButtonChallengeVerifyCodeContent}" 
-                               FontFamily="/MultiDownloader;component/Fonts/#Dosis"
-                               FontSize="20" Foreground="White">
-                           <Button.Template>
-                               <ControlTemplate TargetType="Button">
-                                   <Border 
-                                       CornerRadius="20"
-                                       Background="{TemplateBinding Background }">
-                                       <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-                                   </Border>
-                               </ControlTemplate>
-                           </Button.Template>
-                       </Button>
-                   </StackPanel>
-                </Grid>
-           </GroupBox>
-
-
+               <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                   <TextBlock Margin="0,0,5,0" Text="{Binding TextBlockCode}" VerticalAlignment="Center"></TextBlock>
+                   <TextBox FontSize="11" Tag="{Binding TextBoxChallengeCodeTag }" x:Name="TextBoxChallengeCode" Height="35" Margin="0,0,35,0"  ></TextBox>
+               </StackPanel>
+               <StackPanel Grid.Row="1" VerticalAlignment="Center" >
+                   <Button Margin="100,0,100,0"
+                           x:Name="ButtonChallengeVerifyCode"
+                           Height="35"
+                           Content="{Binding ButtonChallengeVerifyCodeContent}" 
+                           FontFamily="/MultiDownloader;component/Fonts/#Dosis"
+                           FontSize="20" Foreground="White">
+                       <Button.Template>
+                           <ControlTemplate TargetType="Button">
+                               <Border 
+                                   CornerRadius="20"
+                                   Background="{TemplateBinding Background }">
+                                   <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                               </Border>
+                           </ControlTemplate>
+                       </Button.Template>
+                   </Button>
+               </StackPanel>
+            </Grid>-->
 
         </Grid>
 
