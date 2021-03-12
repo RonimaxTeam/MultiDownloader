@@ -77,6 +77,8 @@
 
                     <TextBox x:Name="TextBoxUserNameInstagramContent"
                              Margin="0,0,20,5" Width="250"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
                              Height="30" Background="AntiqueWhite"
                              Tag="{Binding TextBoxUserNameInstagramContentTag}"
                              FontSize="11"></TextBox>
@@ -91,6 +93,8 @@
 
                     <TextBox x:Name="TextBoxPasswordInstagramContent"
                              Margin="0,0,20,0"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
                              Width="250" Height="30" Background="AntiqueWhite"
                              Tag="{Binding TextBoxPasswordInstagramContentTag}"
                              FontSize="11"></TextBox>

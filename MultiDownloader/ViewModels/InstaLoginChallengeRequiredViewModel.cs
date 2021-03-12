@@ -27,12 +27,6 @@ namespace MultiDownloader.ViewModels
         private string _textBlockMethodText;
         private string _pictuteBoxMethod;
         
-
-
-
-
-
-
         public InstaLoginChallengeRequiredViewModel()
         {
             BackgroundWindowColor = "#181745";
@@ -45,7 +39,7 @@ namespace MultiDownloader.ViewModels
             TextBlockCode = "Code :";
             GroupBoxIdentityConfirmation = "Identity Confirmation";
             TextBlockHeaderCode = "Code";
-            TextBoxChallengeCodeTag = "Inter the code...";
+            TextBoxChallengeCodeTag = "Enter the code...";
             PictureBoxKey = "../Resource/KeyDark.png";
             PictureBoxIdentityConfirmation = "../Resource/identification_documents_50px.png";
             GroupBoxBorderBrush = "#FFFFFFFF";

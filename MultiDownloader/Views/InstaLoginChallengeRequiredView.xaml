@@ -90,7 +90,7 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 
-                                                CornerRadius="14"
+                                                CornerRadius="12"
                                                 Background="{TemplateBinding Background }">
                                         <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center"></ContentPresenter>
                                     </Border>
@@ -108,7 +108,7 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border 
-                                                CornerRadius="14"
+                                                CornerRadius="12"
                                                 Background="{TemplateBinding Background }">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                                     </Border>
@@ -118,7 +118,7 @@
                         <Grid Grid.Column="0">
                             <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
                                             BorderThickness="3"
-                                            Padding="5" CornerRadius="0" Margin="0,3,0,0" Width="180" Height="40">
+                                            CornerRadius="0" Width="180" Height="42">
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -127,9 +127,17 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Grid.Column="0" Source="{Binding PictureBoxKey}" Margin="0,0,5,0" Width="12" Height="12"></Image>
-                                    <TextBlock Grid.Column="1" Text="{Binding TextBlockCode}" Margin="0,2.5,0,0" FontSize="13"></TextBlock>
-
+                                    <Image Grid.Column="0" Source="{Binding PictureBoxKey}" Margin="6,0,0,1" Width="12" Height="12"></Image>
+                                    <TextBlock Grid.Column="1" Text="{Binding TextBlockCode}" Margin="5,8,0,0" FontSize="13"></TextBlock>
+                                    <TextBox  Grid.Column="2"
+                                              Tag="{Binding TextBoxChallengeCodeTag}"
+                                              Height="25" 
+                                              Margin="3,5,7,5"
+                                              x:Name="TextBoxChallengeCode"
+                                              VerticalContentAlignment="Center"
+                                              HorizontalContentAlignment="Center"
+                                              FontSize="10">
+                                    </TextBox>
                                 </Grid>
 
 
