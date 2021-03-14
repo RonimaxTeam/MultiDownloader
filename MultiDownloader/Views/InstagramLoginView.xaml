@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <!--Top Grid-->
-        <Grid Grid.Row="0" Background="{Binding BackgroundTopGridColor}" Grid.ColumnSpan="2">
+        <Grid Grid.Row="0" Background="{Binding BackgroundTopGridColor}" Grid.ColumnSpan="2" MouseMove="UIElement_OnMouseMove">
             <Grid.ColumnDefinitions>
                 <!--10Columns-->
                 <ColumnDefinition></ColumnDefinition>
@@ -38,11 +38,11 @@
                        FontSize="14">
             </TextBlock>
 
-            <Button Grid.Column="9" Margin="4" Background="DarkRed">
+            <Button Grid.Column="9" Margin="4" Background="DarkRed" Click="ButtonClose_OnClick">
                 <Image Source="../Resource/delete_20px.png"></Image>
             </Button>
 
-            <Button Grid.Column="8" Margin="4,4,2,4" Background="Aqua">
+            <Button Grid.Column="8" Margin="4,4,2,4" Background="Aqua" Click="ButtonMinimize_OnClick">
                 <Image Source="../Resource/minimize_window_20px.png"></Image>
             </Button>
 

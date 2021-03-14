@@ -23,5 +23,24 @@ namespace MultiDownloader.Views
         {
             InitializeComponent();
         }
+
+        private void UIElement_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void ButtonMinimize_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

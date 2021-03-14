@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="GetURLView" Height="200" Width="410" WindowStyle="None" ResizeMode="NoResize"  Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen" >
+        Title="GetURLView" Height="200" Width="410" WindowStyle="None" ResizeMode="NoResize"  Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen"  >
 
     <Grid>
 
@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <!--Top Grid-->
-        <Grid Grid.Row="0" Background="{Binding BackgroundTopGridColor}" Grid.ColumnSpan="2">
+        <Grid x:Name="GridTop" Grid.Row="0" Background="{Binding BackgroundTopGridColor}" Grid.ColumnSpan="2" MouseMove="InstaLoginChallengeRequiredView_OnMouseMove">
             <Grid.ColumnDefinitions>
-                <!--24Columns-->
+                <!--3 Columns-->
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="0.09*"></ColumnDefinition>
                 <ColumnDefinition Width="0.09*"></ColumnDefinition>
@@ -33,11 +33,11 @@
                        FontSize="14">
             </TextBlock>
 
-            <Button Grid.Column="2" Margin="4" Background="DarkRed">
+            <Button Grid.Column="2" Margin="4" Background="DarkRed" Click="ButtonClose_OnClick">
                 <Image Source="../Resource/delete_20px.png"></Image>
             </Button>
 
-            <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua">
+            <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua" Click="ButtonMinimize_OnClick">
                 <Image Source="../Resource/minimize_window_20px.png"></Image>
             </Button>
 
