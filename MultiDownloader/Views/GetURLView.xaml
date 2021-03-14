@@ -84,7 +84,7 @@
                          FontSize="15">
 
                 </TextBox>
-                <Button x:Name="ButtonCheckURL" Width="200" Height="50" Content="{Binding ButtonCheckURLContent}" FontFamily="/MultiDownloader;component/Fonts/#Dosis" FontSize="20" Foreground="White">
+                <Button x:Name="ButtonCheckURL" IsEnabled="False" Width="200" Height="50" Content="{Binding ButtonCheckURLContent}" FontFamily="/MultiDownloader;component/Fonts/#Dosis" FontSize="20" Foreground="White">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border 

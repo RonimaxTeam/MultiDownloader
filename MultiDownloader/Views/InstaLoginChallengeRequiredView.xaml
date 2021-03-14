@@ -98,12 +98,12 @@
                             </Button.Template>
                         </Button>
 
-                        <Button Grid.Column="1" Margin="0,0,10,0"
+                        <Button Grid.Column="1" Visibility="{Binding VerifyCodeVisibility}" Margin="0,0,10,0"
                                         x:Name="ButtonChallengeVerifyCode"
                                         Width="80"
                                         Height="35"
                                         Content="{Binding ButtonChallengeVerifyCodeContent}" 
-                                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
+                        FontFamily="/MultiDownloader;component/Fonts/#Dosis"
                                         FontSize="15" Foreground="White">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
@@ -115,7 +115,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                        <Grid Grid.Column="0">
+                        <Grid Grid.Column="0" Visibility="{Binding ButtonChallengeVerifyCodeContent}">
                             <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
                                             BorderThickness="3"
                                             CornerRadius="0" Width="180" Height="42">
@@ -139,8 +139,6 @@
                                               FontSize="10">
                                     </TextBox>
                                 </Grid>
-
-
 
                             </Border>
                         </Grid>

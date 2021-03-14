@@ -46,6 +46,10 @@ namespace MultiDownloader.ViewModels
         private string _textBlockDownloaderProgramTypeText;
         private string _buttonBackContent;
         private string _buttonStartContent;
+        private string _comboBoxVisibility;
+
+        
+
 
 
         public InstagramAndYouTubeInformationProductViewModel()
@@ -62,9 +66,12 @@ namespace MultiDownloader.ViewModels
             ImagePageInformationSourceHeader = "../Resource/PageInfo.png";
             TextBlockPageInformationHeaderText = "Page Information";
             TextBlockAuthorText = "Author : ";
-            TextBlockAuthorInformationText = "";
+
+            TextBlockAuthorInformationText = "بعدا نوشته شود";
+
             TextBlockPageNameText = "Page Name : ";
-            TextBlockPageNameInformationText = "";
+
+            TextBlockPageNameInformationText = "بعدا نوشته شود";
 
             Page = "بعدا پر شود";
             PageInformation = "بعدا پر شود";
@@ -79,6 +86,7 @@ namespace MultiDownloader.ViewModels
             TextBlockDownloaderProgramTypeText = "YouTube";
             ButtonBackContent = "Back";
             ButtonStartContent = "Start";
+            ComboBoxVisibility = "Visible";
         }
 
         #region Properties
@@ -328,6 +336,15 @@ namespace MultiDownloader.ViewModels
             {
                 _buttonStartContent = value;
                 NotifyOfPropertyChange(nameof(ButtonStartContent));
+            }
+        }
+        public string ComboBoxVisibility
+        {
+            get { return _comboBoxVisibility; }
+            set
+            {
+                _comboBoxVisibility = value;
+                NotifyOfPropertyChange(ComboBoxVisibility);
             }
         }
 
