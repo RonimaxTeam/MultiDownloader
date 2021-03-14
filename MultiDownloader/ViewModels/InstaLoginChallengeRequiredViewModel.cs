@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using Caliburn.Micro;
+using CustomAlertBoxDemo;
+using InstagramApiSharp.Classes;
+using MultiDownloader.Classes;
 
 namespace MultiDownloader.ViewModels
 {
@@ -26,9 +31,13 @@ namespace MultiDownloader.ViewModels
         private string _groupBoxBorderBrush;
         private string _textBlockMethodText;
         private string _pictuteBoxMethod;
-        private string _verifyCodeVisibility;
+        private Visibility _verifyCodeVisibility;
+        private bool _panelMethodEnable;
+        private bool _radioButtonEmail;
 
         
+
+
         public InstaLoginChallengeRequiredViewModel()
         {
             BackgroundWindowColor = "#181745";
@@ -47,7 +56,9 @@ namespace MultiDownloader.ViewModels
             GroupBoxBorderBrush = "#FFFFFFFF";
             TextBlockMethodText = "Method : ";
             PictureBoxMethod = "../Resource/MethodDark.png";
-            VerifyCodeVisibility = "Visible";
+            VerifyCodeVisibility = Visibility.Hidden;
+            PanelMethodEnable = true;
+            Alert = new Alert();
         }
 
         #region Properties
@@ -218,24 +229,140 @@ namespace MultiDownloader.ViewModels
             }
         }
 
-        public string VerifyCodeVisibility
+        public Visibility VerifyCodeVisibility
         {
             get { return _verifyCodeVisibility; }
             set
             {
                 _verifyCodeVisibility = value;
-                NotifyOfPropertyChange(VerifyCodeVisibility);
+                NotifyOfPropertyChange(nameof(VerifyCodeVisibility));
             }
         }
+
+        public bool PanelMethodEnable
+        {
+            get { return _panelMethodEnable; }
+            set
+            {
+                _panelMethodEnable = value;
+                NotifyOfPropertyChange(nameof(PanelMethodEnable));
+            }
+        }
+
+        public bool RadioButtonEmail
+        {
+            get { return _radioButtonEmail; }
+            set
+            {
+                _radioButtonEmail = value;
+                NotifyOfPropertyChange(RadioButtonEmail.ToString());
+            }
+        }
+
+        public Alert Alert { get; set; }
 
         #endregion
 
         #region Methods
-        public void ButtonChallengeSend()
+
+        public async void ButtonChallengeSend()
         {
-            IWindowManager manager = new WindowManager();
-            manager.ShowWindow(new InstagramAndYouTubeInformationProductViewModel(), null, null);
+            //IWindowManager manager = new WindowManager();
+            //manager.ShowWindow(new InstagramAndYouTubeInformationProductViewModel(), null, null);
+
+            await ChallengeSend();
         }
+
+        public async void ButtonChallengeVerifyCode()
+        {
+            await ChallengeVerify();
+        }
+
+        public async Task ChallengeSend()
+        {
+            try
+            {
+                bool isEmail = RadioButtonEmail;
+
+                if (isEmail)
+                {
+
+                    var email = await InstagramLogin.InstaApi.RequestVerifyCodeToEmailForChallengeRequireAsync();
+                    if (email.Succeeded)
+                    {
+                        PanelMethodEnable = false;
+                        VerifyCodeVisibility = Visibility.Visible;
+                        Alert.Show("The code was sent", Form_Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        Alert.Show("Invalid Email", Form_Alert.enmType.Error);
+                    }
+
+                }
+                else
+                {
+                    var phoneNumber = await InstagramLogin.InstaApi.RequestVerifyCodeToSMSForChallengeRequireAsync();
+                    if (phoneNumber.Succeeded)
+                    {
+                        PanelMethodEnable = false;
+                        VerifyCodeVisibility = Visibility.Visible;
+                        Alert.Show("The code was sent", Form_Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        Alert.Show("Invalid phone select email", Form_Alert.enmType.Error);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert.Show("Unknown error", Form_Alert.enmType.Error); ;
+            }
+        }
+
+        public async Task ChallengeVerify()
+        {
+            var regex = new Regex(@"^-*[0-9,\.]+$");
+            if (!regex.IsMatch(TextBoxChallengeCode.Trim()))
+            {
+                Alert.Show("The code is numeric format",Form_Alert.enmType.Warning);
+                return;
+            }
+            if (TextBoxChallengeCode.Trim().Length != 6)
+            {
+                Alert.Show("The code must be 6 digits",Form_Alert.enmType.Warning);
+               return;
+            }
+
+            try
+            {
+                var verifyLogin = await InstagramLogin.InstaApi.VerifyCodeForChallengeRequireAsync(TextBoxChallengeCode.Trim());
+                if (verifyLogin.Succeeded)
+                {
+                    Alert.Show("Successfully login", Form_Alert.enmType.Success);
+                    TryClose();
+                }
+                else
+                {
+                    if (verifyLogin.Value == InstaLoginResult.TwoFactorRequired)
+                    {
+                        Alert.Show("Two factor required", Form_Alert.enmType.Warning);
+                    }
+                    else
+                    {
+                        Alert.Show("Invalid Code", Form_Alert.enmType.Error);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Alert.Show("Unknown error", Form_Alert.enmType.Error);
+            }
+        }
+        
 
         #endregion
     }

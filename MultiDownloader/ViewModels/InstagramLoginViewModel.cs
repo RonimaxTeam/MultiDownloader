@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MultiDownloader.Classes;
+using InstagramApiSharp.Classes;
+using Screen = Caliburn.Micro.Screen;
+using System.Windows.Threading;
+using CustomAlertBoxDemo;
 using Caliburn.Micro;
 
 namespace MultiDownloader.ViewModels
@@ -19,6 +25,9 @@ namespace MultiDownloader.ViewModels
         private string _textBoxPasswordInstagramContent;
         private string _textBoxUserNameInstagramContentTag;
         private string _textBoxPasswordInstagramContentTag;
+        DispatcherTimer IsCompleteReturnLoginResulTimer;
+        
+
 
         public InstagramLoginViewModel()
         {
@@ -30,8 +39,11 @@ namespace MultiDownloader.ViewModels
             PictureBoxPasswordFilePath = "../Resource/PasswordDark.png";
             TextBoxUserNameInstagramContentTag = "Uername/Email...";
             TextBoxPasswordInstagramContentTag = "Password...";
-        }
+            IsCompleteReturnLoginResulTimer = new DispatcherTimer();
+            Alert = new Alert();
 
+        }
+        
         #region Properties
         
         public string ButtonInstagramLoginContent
@@ -155,17 +167,53 @@ namespace MultiDownloader.ViewModels
             }
         }
 
+        public Alert Alert { get; set; }
         #endregion
 
         #region Methods
-        public void ButtonLogin()
+        public async void ButtonLogin()
         {
-            IWindowManager manager = new WindowManager();
-            manager.ShowWindow(new InstaLoginChallengeRequiredViewModel(), null, null);
+            //IWindowManager manager = new WindowManager();
+            //manager.ShowWindow(new InstaLoginChallengeRequiredViewModel(), null, null);
+
+            LoginingDesign();
+            await InstaLogin(TextBoxUserNameInstagramContent, TextBoxPasswordInstagramContent);
+            InstaLoginResultHandler();
 
         }
 
 
+        public void LoginingDesign()
+        {
+
+        }
+
+        public async Task InstaLogin(string username, string password)
+        {
+           await InstagramLogin.Login(username, password);
+        }
+
+        public void InstaLoginResultHandler()
+        {
+            if (InstagramLogin.InstagramLoginResult.Succeeded is true)
+            {
+                Alert.Show("LoginSuccessfully",Form_Alert.enmType.Success);
+                TryClose();
+            }
+            else if (InstagramLogin.InstagramLoginResult.Value.ToString() is "ChallengeRequired")
+            {
+                IWindowManager manager = new WindowManager();
+                manager.ShowWindow(new InstaLoginChallengeRequiredViewModel());
+                TryClose();
+            }
+            else
+            {
+                Alert.Show("Incorrect user and password",Form_Alert.enmType.Error);
+            }
+
+
+        }
+        
         #endregion
     }
 }

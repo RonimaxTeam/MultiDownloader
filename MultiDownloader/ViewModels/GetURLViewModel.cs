@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Caliburn.Micro;
+using CustomAlertBoxDemo;
+using MultiDownloader.Classes;
 
 namespace MultiDownloader.ViewModels
 {
@@ -19,9 +21,7 @@ namespace MultiDownloader.ViewModels
         private string _textBoxURLTag;
         private bool _buttonCheckUrlEnable;
         private bool _textBoxUrlEnable;
-
-        
-
+        private List<string> Patterns;
 
         public GetURLViewModel()
         {
@@ -33,6 +33,9 @@ namespace MultiDownloader.ViewModels
             TextBoxURLTag = "Inter your post link";
             ButtonCheckUrlEnable = true;
             TextBoxUrlEnable = true;
+            CheckStructure = new CheckStructure();
+            DialogAlert = new Alert();
+            ApplyCheckRuls();
         }
 
         #region Properties
@@ -138,17 +141,55 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(TextBoxUrlEnable.ToString());
             }
         }
+        public CheckStructure CheckStructure { get; set; }
+        public Alert DialogAlert;
         #endregion
 
         #region Methods
+
         public void ButtonCheckURL()
         {
-            IWindowManager manager = new WindowManager();
-            manager.ShowWindow(new InstagramLoginViewModel(), null, null);
+            if (!string.IsNullOrEmpty(TextBoxURL))
+            {
+                if (CheckStructureURL() && TextBoxURL.Contains("www.instagram.com"))
+                {
+                    IWindowManager manager = new WindowManager();
+                    manager.ShowWindow(new InstagramLoginViewModel());
+                }
+                else if (CheckStructureURL() && TextBoxURL.Contains("www.youtube.com"))
+                {
+                    IWindowManager manager = new WindowManager();
+                    manager.ShowWindow(new InstagramAndYouTubeInformationProductViewModel());
+                }
+                else
+                {
+                    DialogAlert.Show("Invalid Url",Form_Alert.enmType.Error);
+                }
+            }
+            else
+            {
+                DialogAlert.Show("The link place is empty",Form_Alert.enmType.Error);
+            }
             
-
         }
-        
+
+        public bool CheckStructureURL()
+        {
+            return CheckStructure.Check(TextBoxURL);
+        }
+
+        public void ApplyCheckRuls()
+        {
+            Patterns = new List<string>()
+            {
+
+                "^(https://www.instagram.com/p/)",
+                "^(https://www.instagram.com/tv/)",
+                "^(https://www.youtube.com/)"
+            };
+
+            CheckStructure.ApplyRules(Patterns);
+        }
 
         #endregion
 
