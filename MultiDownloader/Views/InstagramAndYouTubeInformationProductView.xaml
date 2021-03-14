@@ -203,7 +203,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <ComboBox Width="240" ></ComboBox>
+                            <ComboBox Width="240" Visibility="{Binding ComboBoxVisibility}"></ComboBox>
                         </StackPanel>
 
                     </Grid>

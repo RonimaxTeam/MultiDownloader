@@ -26,7 +26,11 @@ namespace MultiDownloader.ViewModels
         private string _groupBoxBorderBrush;
         private string _textBlockMethodText;
         private string _pictuteBoxMethod;
+        private string _verifyCodeVisibility;
+
         
+
+
         public InstaLoginChallengeRequiredViewModel()
         {
             BackgroundWindowColor = "#181745";
@@ -45,6 +49,7 @@ namespace MultiDownloader.ViewModels
             GroupBoxBorderBrush = "#FFFFFFFF";
             TextBlockMethodText = "Method : ";
             PictureBoxMethod = "../Resource/MethodDark.png";
+            VerifyCodeVisibility = "Visible";
         }
 
         #region Properties
@@ -212,6 +217,16 @@ namespace MultiDownloader.ViewModels
             {
                 _pictuteBoxMethod = value;
                 NotifyOfPropertyChange(PictureBoxMethod);
+            }
+        }
+
+        public string VerifyCodeVisibility
+        {
+            get { return _verifyCodeVisibility; }
+            set
+            {
+                _verifyCodeVisibility = value;
+                NotifyOfPropertyChange(VerifyCodeVisibility);
             }
         }
 
