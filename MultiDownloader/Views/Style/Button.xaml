@@ -8,7 +8,7 @@
                     <Setter Property="Background" Value="#FF4C70"></Setter>
                 </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" Value="#FF4C70"></Setter>
+                <Setter Property="Background" Value="DarkGray"></Setter>
             </Trigger>
             </Style.Triggers>
     </Style>

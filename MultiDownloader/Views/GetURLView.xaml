@@ -55,6 +55,7 @@
                            FontSize="14"></TextBlock>
 
                 <TextBox Tag="{Binding TextBoxURLTag}"
+                         IsEnabled="{Binding TextBoxUrlEnable}"
                          Margin="30,15,30,20"
                          Height="40" VerticalAlignment="Top"
                          x:Name="TextBoxURL"
@@ -63,7 +64,7 @@
                          FontSize="15">
 
                 </TextBox>
-                <Button x:Name="ButtonCheckURL" IsEnabled="False" Width="200" Height="50" Content="{Binding ButtonCheckURLContent}" FontFamily="/MultiDownloader;component/Fonts/#Dosis" FontSize="20" Foreground="White">
+                <Button x:Name="ButtonCheckURL" IsEnabled="{Binding ButtonCheckUrlEnable}" Width="200" Height="50" Content="{Binding ButtonCheckURLContent}" FontFamily="/MultiDownloader;component/Fonts/#Dosis" FontSize="20" Foreground="White">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border 

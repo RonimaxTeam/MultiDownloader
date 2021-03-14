@@ -115,7 +115,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-                        <Grid Grid.Column="0" Visibility="{Binding ButtonChallengeVerifyCodeContent}">
+                        <Grid Grid.Column="0" Visibility="{Binding VerifyCodeVisibility}">
                             <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
                                             BorderThickness="3"
                                             CornerRadius="0" Width="180" Height="42">

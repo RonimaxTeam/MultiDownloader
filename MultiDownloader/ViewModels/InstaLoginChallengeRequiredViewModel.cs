@@ -29,8 +29,6 @@ namespace MultiDownloader.ViewModels
         private string _verifyCodeVisibility;
 
         
-
-
         public InstaLoginChallengeRequiredViewModel()
         {
             BackgroundWindowColor = "#181745";

@@ -17,6 +17,11 @@ namespace MultiDownloader.ViewModels
         private string _windowTitleText;
         private string _textBoxURL;
         private string _textBoxURLTag;
+        private bool _buttonCheckUrlEnable;
+        private bool _textBoxUrlEnable;
+
+        
+
 
         public GetURLViewModel()
         {
@@ -26,6 +31,8 @@ namespace MultiDownloader.ViewModels
             BackgroundTopGridColor = "#0F0F2D";
             WindowTitleText = "Multi Downloader";
             TextBoxURLTag = "Inter your post link";
+            ButtonCheckUrlEnable = true;
+            TextBoxUrlEnable = true;
         }
 
         #region Properties
@@ -111,6 +118,24 @@ namespace MultiDownloader.ViewModels
             {
                 _textBoxURLTag = value;
                 NotifyOfPropertyChange(TextBoxURLTag);
+            }
+        }
+        public bool ButtonCheckUrlEnable
+        {
+            get { return _buttonCheckUrlEnable; }
+            set
+            {
+                _buttonCheckUrlEnable = value;
+                NotifyOfPropertyChange(ButtonCheckUrlEnable.ToString());
+            }
+        }
+        public bool TextBoxUrlEnable
+        {
+            get { return _textBoxUrlEnable; }
+            set
+            {
+                _textBoxUrlEnable = value;
+                NotifyOfPropertyChange(TextBoxUrlEnable.ToString());
             }
         }
         #endregion
