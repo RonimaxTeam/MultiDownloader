@@ -333,15 +333,15 @@ namespace MultiDownloader.ViewModels
 
         #endregion
 
-        public void Alert(string msg, Form_Alert.enmType type, Form_Alert.enmDialogTime time)
+        public void Alert(string msg, Form_Alert.enmType type)
         {
             Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type, time);
+            frm.showAlert(msg, type);
         }
         #region Methods
         public void ButtonStart()
         {
-            this.Alert("Error", Form_Alert.enmType.Success, Form_Alert.enmDialogTime.Const);
+            this.Alert("Error", Form_Alert.enmType.Success);
         }
         public void ButtonBack()
         {

@@ -117,6 +117,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_Alert.resx">
       <DependentUpon>Form_Alert.cs</DependentUpon>
@@ -194,26 +195,11 @@
     <Resource Include="Resource\YoutubeDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\error.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resource\CustomDialog\error.png" />
     <Resource Include="Resource\CustomDialog\icons8_cancel_25px.png" />
     <Resource Include="Resource\CustomDialog\info.png" />
     <Resource Include="Resource\CustomDialog\success.png" />
     <Resource Include="Resource\CustomDialog\warning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_cancel_25px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\info.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\success.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
