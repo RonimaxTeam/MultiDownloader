@@ -195,6 +195,12 @@
     <Resource Include="Resource\YoutubeDark.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\identification_documents_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resource\CustomDialog\error.png" />
     <Resource Include="Resource\CustomDialog\icons8_cancel_25px.png" />
     <Resource Include="Resource\CustomDialog\info.png" />

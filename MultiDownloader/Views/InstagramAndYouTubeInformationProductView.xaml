@@ -18,7 +18,7 @@
 
 
         <!--Top Grid-->
-        <Grid Grid.Row="0" Background="{Binding BackgroundTopGridColor}">
+        <Grid Grid.Row="0" Background="{Binding BackgroundTopGridColor}" MouseMove="UIElement_OnMouseMove">
             <!--3 Columns-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -26,10 +26,10 @@
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="2" Margin="4,4,4,4" Background="DarkRed" >
+            <Button Grid.Column="2" Margin="4,4,4,4" Background="DarkRed" Click="ButtonClose_OnClick" >
                 <Image Source="../Resource/delete_20px.png"></Image>
             </Button>
-            <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua">
+            <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua" Click="ButtonMinimize_OnClick">
                 <Image Source="../Resource/minimize_window_20px.png"></Image>
             </Button>
             <TextBlock Grid.Column="0"
@@ -173,7 +173,7 @@
                     </GroupBox.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.85*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Grid.Column="0">
@@ -186,7 +186,7 @@
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        FontWeight="Medium"
-                                       Margin="0,0,0,0"
+                                       Margin="0,0,0,2"
                             ></TextBlock>
                             <TextBlock 
                                        Text="{Binding TextBlockMediaTypeInformationText}"
@@ -196,14 +196,14 @@
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        FontWeight="Medium"
-                                       Margin="15,0,0,0"
+                                       Margin="5,0,0,0"
                             ></TextBlock>
 
 
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <ComboBox Width="170" ></ComboBox>
+                            <ComboBox Width="240" ></ComboBox>
                         </StackPanel>
 
                     </Grid>

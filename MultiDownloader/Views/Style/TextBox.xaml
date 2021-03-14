@@ -3,13 +3,7 @@
                     xmlns:local ="clr-namespace:MultiDownloader">
 
     <Style TargetType="TextBox">
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="MinHeight" Value="20"/>
-        <Setter Property="MinWidth" Value="190"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
         <Setter Property="Cursor" Value="IBeam"></Setter>
         <Setter Property="Template">
             <Setter.Value>
@@ -28,7 +22,7 @@
                                 />
                         </Border>
                         <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
-                                   Visibility="Collapsed" Foreground="Gray" FontFamily="Arial" FontSize="{TemplateBinding FontSize}"/>
+                                   Visibility="Collapsed" Foreground="Gray" FontFamily="Cambria" FontSize="{TemplateBinding FontSize}"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>

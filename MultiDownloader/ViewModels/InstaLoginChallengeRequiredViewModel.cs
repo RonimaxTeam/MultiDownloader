@@ -18,12 +18,15 @@ namespace MultiDownloader.ViewModels
         private string _buttonChallengeVerifyCodeContent;
         private string _textBoxChallengeCode;
         private string _textBlockCode;
-        private string _textBlockMethod;
+        private string _groupBoxIdentityConfirmation;
         private string _textBlockHeaderCode;
         private string _textBoxChallengeCodeTag;
         private string _pictureBoxKey;
-        private string _pictureBoxMethod;
-
+        private string _pictureBoxIdentityConfirmation;
+        private string _groupBoxBorderBrush;
+        private string _textBlockMethodText;
+        private string _pictuteBoxMethod;
+        
         public InstaLoginChallengeRequiredViewModel()
         {
             BackgroundWindowColor = "#181745";
@@ -34,10 +37,13 @@ namespace MultiDownloader.ViewModels
             ButtonChallengeSendContent = "Send";
             ButtonChallengeVerifyCodeContent = "Verify Code";
             TextBlockCode = "Code :";
-            TextBlockMethod = "Method";
+            GroupBoxIdentityConfirmation = "Identity Confirmation";
             TextBlockHeaderCode = "Code";
-            TextBoxChallengeCodeTag = "Inter the code...";
+            TextBoxChallengeCodeTag = "Enter the code...";
             PictureBoxKey = "../Resource/KeyDark.png";
+            PictureBoxIdentityConfirmation = "../Resource/identification_documents_50px.png";
+            GroupBoxBorderBrush = "#FFFFFFFF";
+            TextBlockMethodText = "Method : ";
             PictureBoxMethod = "../Resource/MethodDark.png";
         }
 
@@ -137,13 +143,12 @@ namespace MultiDownloader.ViewModels
             }
         }
 
-        public string TextBlockMethod
+        public string GroupBoxIdentityConfirmation
         {
-            get => _textBlockMethod;
+            get => _groupBoxIdentityConfirmation;
             set
-            {
-                _textBlockMethod = value;
-                NotifyOfPropertyChange(TextBlockMethod);
+            { _groupBoxIdentityConfirmation = value;
+                NotifyOfPropertyChange(GroupBoxIdentityConfirmation);
             }
         }
         public string TextBlockHeaderCode
@@ -173,12 +178,39 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(PictureBoxKey);
             }
         }
-        public string PictureBoxMethod
+        public string PictureBoxIdentityConfirmation
         {
-            get => _pictureBoxMethod;
+            get => _pictureBoxIdentityConfirmation;
             set
             {
-                _pictureBoxMethod = value;
+                _pictureBoxIdentityConfirmation = value;
+                NotifyOfPropertyChange(PictureBoxIdentityConfirmation);
+            }
+        }
+        public string GroupBoxBorderBrush
+        {
+            get { return _groupBoxBorderBrush; }
+            set
+            {
+                _groupBoxBorderBrush = value;
+                NotifyOfPropertyChange(GroupBoxBorderBrush);
+            }
+        }
+        public string TextBlockMethodText
+        {
+            get { return _textBlockMethodText; }
+            set
+            {
+                _textBlockMethodText = value;
+                NotifyOfPropertyChange(nameof(TextBlockMethodText));
+            }
+        }
+        public string PictureBoxMethod
+        {
+            get { return _pictuteBoxMethod; }
+            set
+            {
+                _pictuteBoxMethod = value;
                 NotifyOfPropertyChange(PictureBoxMethod);
             }
         }
