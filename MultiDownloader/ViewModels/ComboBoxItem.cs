@@ -23,6 +23,8 @@ namespace MultiDownloader.ViewModels
                 NotifyOfPropertyChange(nameof(ComboBoxImageItem));
             }
         }
+
+        public string Size { get; set; }
         
     }
 }

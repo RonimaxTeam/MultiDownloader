@@ -217,6 +217,7 @@
                                             <Image Source="{Binding ComboBoxImageItem}" Margin="3,2,5,0"></Image>
                                             <TextBlock Text="{Binding SlideOrProductType}" Margin="0,3,0,0"/>
                                             <TextBlock Text="{Binding ProductTypeAndProductTimeOrQuality}" Margin="0,3,0,0"/>
+                                            <TextBlock Text="{Binding Size}" Margin="0,3,0,0"/>
                                         </StackPanel>
 
                                     </DataTemplate>
