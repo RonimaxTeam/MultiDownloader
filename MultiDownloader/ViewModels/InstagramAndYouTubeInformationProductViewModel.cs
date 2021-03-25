@@ -119,7 +119,7 @@ namespace MultiDownloader.ViewModels
                                             {
 
                                                 TextBlockMediaTypeInformationText = "Multi Page";
-                                                ComboBoxItems.Add(new ComboBoxItem() { Slide = $"Slide ({i + 1}) - ", ProductTypeAndProductTime = "Type : ( Image )", ComboBoxImageItem = "../Resource/ImageDark.png" });
+                                                ComboBoxItems.Add(new ComboBoxItem() { SlideOrProductType = $"Slide ({i + 1}) - ", ProductTypeAndProductTimeOrQuality = "Type : ( Image )", ComboBoxImageItem = "../Resource/ImageDark.png" });
                                                 ComboBoxVisibility = "Visible";
                                             });
                                         }
@@ -130,7 +130,7 @@ namespace MultiDownloader.ViewModels
                                             {
 
                                                 TextBlockMediaTypeInformationText = "Multi Page";
-                                                ComboBoxItems.Add(new ComboBoxItem() { Slide = $"Slide ({i + 1}) - ", ProductTypeAndProductTime = "Type : ( Video )", ComboBoxImageItem = "../Resource/VideoDark.png" });
+                                                ComboBoxItems.Add(new ComboBoxItem() { SlideOrProductType = $"Slide ({i + 1}) - ", ProductTypeAndProductTimeOrQuality = "Type : ( Video )", ComboBoxImageItem = "../Resource/VideoDark.png" });
                                                 ComboBoxVisibility = "Visible";
                                             });
                                         }

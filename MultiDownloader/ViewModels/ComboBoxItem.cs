@@ -11,8 +11,8 @@ namespace MultiDownloader.ViewModels
     {
         private string _comboBoxImageItem;
 
-        public string Slide { get; set; }
-        public string ProductTypeAndProductTime { get; set; }
+        public string SlideOrProductType { get; set; }
+        public string ProductTypeAndProductTimeOrQuality { get; set; }
 
         public string ComboBoxImageItem
         {
