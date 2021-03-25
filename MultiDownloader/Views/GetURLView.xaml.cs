@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -42,5 +43,16 @@ namespace MultiDownloader.Views
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.Closing -= Window_Closing;
+            e.Cancel = true;
+            var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.3));
+            anim.Completed += (s,_) => this.Close();
+            this.BeginAnimation(UIElement.OpacityProperty, anim);
+        }
+
+       
     }
 }

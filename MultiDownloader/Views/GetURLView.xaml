@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="GetURLView" Height="220" Width="800" WindowStyle="None" ResizeMode="NoResize" Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen" >
+        Title="GetURLView" Height="220" Width="800" WindowStyle="None" ResizeMode="NoResize" Background="{Binding BackgroundWindowColor}" WindowStartupLocation="CenterScreen" Closing="Window_Closing" >
     
     <Grid>
 

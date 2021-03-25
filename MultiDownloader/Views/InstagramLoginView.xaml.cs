@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 
 namespace MultiDownloader.Views
 {
-    /// <summary>
-    /// Interaction logic for InstagramLoginView.xaml
-    /// </summary>
+
     public partial class InstagramLoginView : Window
     {
+        public static string Password { get; set; }
+
         public InstagramLoginView()
         {
             InitializeComponent();
@@ -40,6 +40,11 @@ namespace MultiDownloader.Views
         private void ButtonMinimize_OnClick(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            Password = TextBoxPasswordInstagramContent.Password;
         }
     }
 }

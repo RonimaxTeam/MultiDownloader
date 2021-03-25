@@ -10,140 +10,14 @@ using MultiDownloader.Classes;
 
 namespace MultiDownloader.ViewModels
 {
-    public class GetURLViewModel : Screen
+    public partial class GetURLViewModel : Screen
     {
-        private string _enterURLLableText;
-        private string _buttonCheckURLContent;
-        private string _backgroundWindowColor;
-        private string _backgroundTopGridColor;
-        private string _windowTitleText;
-        private string _textBoxURL;
-        private string _textBoxURLTag;
-        private bool _buttonCheckUrlEnable;
-        private bool _textBoxUrlEnable;
-        private List<string> Patterns;
-
+        
         public GetURLViewModel()
         {
-            EnterURLLableText = "Please Enter Your URL ( Youtube and Instagram ) :";
-            ButtonCheckURLContent = "Check URL";
-            BackgroundWindowColor = "#181745";
-            BackgroundTopGridColor = "#0F0F2D";
-            WindowTitleText = "Multi Downloader";
-            TextBoxURLTag = "Inter your post link";
-            ButtonCheckUrlEnable = true;
-            TextBoxUrlEnable = true;
-            CheckStructure = new CheckStructure();
-            DialogAlert = new Alert();
+            InitializeComponent();
             ApplyCheckRuls();
         }
-
-        #region Properties
-        public string EnterURLLableText
-        {
-            get
-            {
-                return _enterURLLableText;
-            }
-            set
-            {
-                _enterURLLableText = value;
-                NotifyOfPropertyChange(EnterURLLableText);
-            }
-        }
-        public string ButtonCheckURLContent
-        {
-            get
-            {
-                return _buttonCheckURLContent;
-            }
-            set
-            {
-                _buttonCheckURLContent = value;
-                NotifyOfPropertyChange(ButtonCheckURLContent);
-            }
-        }
-        public string BackgroundWindowColor
-        {
-            get
-            {
-                return _backgroundWindowColor;
-            }
-            set
-            {
-                _backgroundWindowColor = value;
-                NotifyOfPropertyChange(BackgroundWindowColor);
-            }
-        }
-        public string BackgroundTopGridColor
-        {
-            get
-            {
-                return _backgroundTopGridColor;
-            }
-            set
-            {
-                _backgroundTopGridColor = value;
-                NotifyOfPropertyChange(BackgroundTopGridColor);
-            }
-        }
-        public string WindowTitleText
-        {
-            get
-            {
-                return _windowTitleText;
-            }
-            set
-            {
-                _windowTitleText = value;
-                NotifyOfPropertyChange(WindowTitleText);
-            }
-        }
-        public string TextBoxURL
-        {
-            get
-            {
-                return _textBoxURL;
-            }
-            set
-            {
-                _textBoxURL = value;
-                NotifyOfPropertyChange(TextBoxURL);
-            }
-        }
-        public string TextBoxURLTag
-        {
-            get
-            {
-                return _textBoxURLTag;
-            }
-            set
-            {
-                _textBoxURLTag = value;
-                NotifyOfPropertyChange(TextBoxURLTag);
-            }
-        }
-        public bool ButtonCheckUrlEnable
-        {
-            get { return _buttonCheckUrlEnable; }
-            set
-            {
-                _buttonCheckUrlEnable = value;
-                NotifyOfPropertyChange(ButtonCheckUrlEnable.ToString());
-            }
-        }
-        public bool TextBoxUrlEnable
-        {
-            get { return _textBoxUrlEnable; }
-            set
-            {
-                _textBoxUrlEnable = value;
-                NotifyOfPropertyChange(TextBoxUrlEnable.ToString());
-            }
-        }
-        public CheckStructure CheckStructure { get; set; }
-        public Alert DialogAlert;
-        #endregion
 
         #region Methods
 
@@ -153,13 +27,20 @@ namespace MultiDownloader.ViewModels
             {
                 if (CheckStructureURL() && TextBoxURL.Contains("www.instagram.com"))
                 {
-                    IWindowManager manager = new WindowManager();
+                    SetMediaStatus();
+                    DialogAlert.Show("Please login than continue", Form_Alert.enmType.Info);
+                    IWindowManager manager = new WindowManager();   
                     manager.ShowWindow(new InstagramLoginViewModel());
+                    
+                    TryClose();
                 }
                 else if (CheckStructureURL() && TextBoxURL.Contains("www.youtube.com"))
                 {
-                    IWindowManager manager = new WindowManager();
+                    SetMediaStatus();
+                    IWindowManager manager = new WindowManager();        
                     manager.ShowWindow(new InstagramAndYouTubeInformationProductViewModel());
+                    
+                    TryClose();
                 }
                 else
                 {
@@ -182,7 +63,6 @@ namespace MultiDownloader.ViewModels
         {
             Patterns = new List<string>()
             {
-
                 "^(https://www.instagram.com/p/)",
                 "^(https://www.instagram.com/tv/)",
                 "^(https://www.youtube.com/)"
@@ -191,9 +71,20 @@ namespace MultiDownloader.ViewModels
             CheckStructure.ApplyRules(Patterns);
         }
 
+        public void SetMediaStatus()
+        {
+            InstagramAndYouTubeInformationProductViewModel.InputURL = TextBoxURL;
+            if (TextBoxURL.Contains("www.instagram.com"))
+            {
+                InstagramAndYouTubeInformationProductViewModel.ProductStatus = "Instagram";
+            }
+            else if (TextBoxURL.Contains("www.youtube.com"))
+            {
+                InstagramAndYouTubeInformationProductViewModel.ProductStatus = "Youtube";
+            }
+        }
+
         #endregion
-
-
 
     }
 }

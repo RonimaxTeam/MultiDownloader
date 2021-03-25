@@ -9,7 +9,7 @@
 
 
     <Grid>
-
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -46,7 +46,7 @@
         </Grid>
 
         <!--Bottom Grid-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" IsEnabled="{Binding BottomGridEnable}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -173,7 +173,8 @@
                     </GroupBox.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.85*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.40*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.42*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Grid.Column="0">
@@ -188,22 +189,39 @@
                                        FontWeight="Medium"
                                        Margin="0,0,0,2"
                             ></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column = "1" Grid.ColumnSpan="2" Orientation="Horizontal">
                             <TextBlock 
-                                       Text="{Binding TextBlockMediaTypeInformationText}"
-                                       Foreground="{Binding TextColor}"
-                                       FontFamily="/MultiDownloader;component/Fonts/#Dosis"
-                                       FontSize="14"
-                                       HorizontalAlignment="Left"
-                                       VerticalAlignment="Center"
-                                       FontWeight="Medium"
-                                       Margin="5,0,0,0"
-                            ></TextBlock>
-
-
+                            Text="{Binding TextBlockMediaTypeInformationText}"
+                            Foreground="{Binding TextColor}"
+                            FontFamily="/MultiDownloader;component/Fonts/#Dosis"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontWeight="Medium"
+                            Margin="10,0,0,0"
+                        ></TextBlock>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <ComboBox Width="240" Visibility="{Binding ComboBoxVisibility}"></ComboBox>
+
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ComboBox Background="DarkGray" Width="240"
+                                      Text="{Binding ComboBoxText}"
+                                      ItemsSource="{Binding ComboBoxItems}"
+                                      SelectedIndex="{Binding ComboBoxSelectedIndex}"
+                                      Visibility="{Binding ComboBoxVisibility}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding ComboBoxImageItem}" Margin="3,2,5,0"></Image>
+                                            <TextBlock Text="{Binding Slide}" Margin="0,3,0,0"/>
+                                            <TextBlock Text="{Binding ProductTypeAndProductTime}" Margin="0,3,0,0"/>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
                         </StackPanel>
 
                     </Grid>
@@ -217,9 +235,9 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal" Height="61" VerticalAlignment="Bottom">
                         <Border BorderBrush="{Binding GroupBoxBorderBrush}" Background="Transparent"
                                 BorderThickness="3"
-                                Padding="5" CornerRadius="3" Margin="0,15,0,0" Width="212">
+                                Padding="5" CornerRadius="3" Margin="0,15,0,0.5" Width="212">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Source="{Binding ImageDownloaderProgramTypeSource}" Width="30" Margin="0,0,0,0"></Image>
+                                <Image Source="{Binding ImageDownloaderProgramTypeSource}" Width="30" Margin="0,0,5,0"></Image>
                                 <TextBlock 
                                     Text="{Binding TextBlockDownloaderProgramTypeText}"
                                     Foreground="{Binding TextColor}"

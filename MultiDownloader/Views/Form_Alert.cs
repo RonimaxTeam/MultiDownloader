@@ -120,7 +120,7 @@ namespace CustomAlertBoxDemo
             {
                 case enmType.Success:
                     this.pictureBox1.Image = MultiDownloader.Properties.Resources.success;
-                    this.BackColor = Color.SeaGreen;
+                    this.BackColor = Color.DarkGreen;
                     break;
                 case enmType.Error:
                     this.pictureBox1.Image = MultiDownloader.Properties.Resources.error;
