@@ -74,7 +74,7 @@ namespace MultiDownloader.ViewModels
             Page = "بعدا پر شود";
             PageInformation = "Loading...";
 
-            ImageMediaInformationSourceHeader = "../Resource/productDarkpx.png";
+            ImageMediaInformationSourceHeader = "../Resource/ProductDark.png";
             TextBlockMediaInformationHeaderText = "Media Information";
             ImageMediaTypeSource = "../Resource/PageInfo.png";
             TextBlockMediaTypeText = "Media Type : ";

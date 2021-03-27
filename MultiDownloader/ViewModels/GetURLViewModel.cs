@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using Caliburn.Micro;
 using CustomAlertBoxDemo;
@@ -28,7 +29,7 @@ namespace MultiDownloader.ViewModels
                 if (CheckStructureURL() && TextBoxURL.Contains("www.instagram.com"))
                 {
                     SetMediaStatus();
-                    DialogAlert.Show("Please login than continue", Form_Alert.enmType.Info);
+                    Alert.Show("Please login than continue", Form_Alert.enmType.Info);
                     IWindowManager manager = new WindowManager();   
                     manager.ShowWindow(new InstagramLoginViewModel());
                     
@@ -44,12 +45,12 @@ namespace MultiDownloader.ViewModels
                 }
                 else
                 {
-                    DialogAlert.Show("Invalid Url",Form_Alert.enmType.Error);
+                    Application.Current.Dispatcher.Invoke(delegate { Alert.Show("Invalid Url", Form_Alert.enmType.Error); });
                 }
             }
             else
             {
-                DialogAlert.Show("The link place is empty",Form_Alert.enmType.Error);
+                Application.Current.Dispatcher.Invoke(delegate { Alert.Show("The link place is empty", Form_Alert.enmType.Error); });
             }
             
         }

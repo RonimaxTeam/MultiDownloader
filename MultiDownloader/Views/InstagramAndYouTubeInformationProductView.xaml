@@ -27,10 +27,10 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="2" Margin="4,4,4,4" Background="DarkRed" Click="ButtonClose_OnClick" >
-                <Image Source="../Resource/delete_20px.png"></Image>
+                <Image Source="../Resource/ExitWindowDark.png"></Image>
             </Button>
             <Button Grid.Column="1" Margin="4,4,2,4" Background="Aqua" Click="ButtonMinimize_OnClick">
-                <Image Source="../Resource/minimize_window_20px.png"></Image>
+                <Image Source="../Resource/MinimaizeWindow.png"></Image>
             </Button>
             <TextBlock Grid.Column="0"
                        Text="{Binding WindowTitleText}"

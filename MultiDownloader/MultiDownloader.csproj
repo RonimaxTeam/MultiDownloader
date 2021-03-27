@@ -123,6 +123,8 @@
     <Compile Include="Classes\CheckStructure.cs" />
     <Compile Include="Classes\InstagramLogin.cs" />
     <Compile Include="ViewModels\ComboBoxItem.cs" />
+    <Compile Include="ViewModels\DownloaderViewModel.cs" />
+    <Compile Include="ViewModels\DownloaderViewModelDesign.cs" />
     <Compile Include="ViewModels\GetURLViewModel.cs" />
     <Compile Include="ViewModels\GetURLViewModelDesign.cs" />
     <Compile Include="ViewModels\InstagramAndYouTubeInformationProductViewModel.cs" />
@@ -131,6 +133,9 @@
     <Compile Include="ViewModels\InstagramLoginViewModelDesign.cs" />
     <Compile Include="ViewModels\InstaLoginChallengeRequiredViewModel.cs" />
     <Compile Include="ViewModels\InstaLoginChallengeRequiredViewModelDesign.cs" />
+    <Compile Include="Views\DownloaderView.xaml.cs">
+      <DependentUpon>DownloaderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +189,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DownloaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GetURLView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,14 +223,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\maximize_button_20px.png" />
-    <Resource Include="Resource\minimize_window_20px.png" />
+    <Resource Include="Resource\MinimaizeWindow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\delete_20px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\key_20px.png" />
+    <Resource Include="Resource\ExitWindowDark.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\PasswordDark.png" />
@@ -237,20 +242,16 @@
     <Resource Include="Resource\KeyDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\downloadDark.png" />
     <Resource Include="Resource\informationDark.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\PageInfo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\productDarkpx.png" />
+    <Resource Include="Resource\ProductDark.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\YoutubeDark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\identification_documents_50px.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
@@ -270,6 +271,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\InstagramDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\DownloadDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\PauseDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\StopDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

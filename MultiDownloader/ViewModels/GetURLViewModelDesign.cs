@@ -40,7 +40,7 @@ namespace MultiDownloader.ViewModels
             TextBoxUrlEnable = true;
 
             CheckStructure = new CheckStructure();
-            DialogAlert = new Alert();
+            Alert = new Alert();
         }
 
         #endregion
@@ -155,7 +155,7 @@ namespace MultiDownloader.ViewModels
         #endregion
 
         public CheckStructure CheckStructure { get; set; }
-        public Alert DialogAlert;
+        public Alert Alert;
 
         #endregion
     }

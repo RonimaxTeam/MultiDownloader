@@ -19,6 +19,7 @@ namespace MultiDownloader
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             DisplayRootViewFor<GetURLViewModel>();
+            //DisplayRootViewFor<DownloaderViewModel>();
         }
     }
 }
